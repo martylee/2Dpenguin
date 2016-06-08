@@ -1,0 +1,11 @@
+Report for penguin.cpp
+The file penguin.cpp is developed on MAC, so we add some components at the top of file in order to compile this file. This file is tested on a CDF machine without any error and warning. In order to produce the correct and fit code, we use the idea from the initial example in the original penguin.cpp file.
+
+
+After reading the initial example in this file. we begins to define the joint range for different part. The range is decided based on the anime result(value changed after all animation of penguin is completed) . The range of beak is small, since the movement for beak is open and close. Second, initialize the joint value for each part of the penguin based on the style of the example. After that, update the user interface by adding these joint names and values, the range for each part is set to -45 to 45, but the range for animation is based on the value we defined at first.
+
+For the function animate, we use the value joint_rot_t that is giving to set the value for  each part¡¯s rot, this value changed with the increment of animate_frame. The basic form is joint_rot_t*MIN + (1- joint_rot_t) * MAX. Again, some changes applied to the basic form in order to optimise the movement for the penguin.
+
+Then for drawing, several helper function is added to simplify the code. For the initial example, we have the draw square function. All body parts of the penguin are polygons, so it can be draw as a combination of lines(glVertex2d).We can use drawSquare for legs,feet and lower beak of the penguin. Add rot value defined previous to the shape we draw by glRotatef,also add different colours for different parts(glColor3f), helper function drawTorso,drawHead,drawArm,drawLegs works in this way.Meanwhile, we need a function drawCircle to add eye,eye ball and the joint part for the penguin, and use drawCircle in drawTorso,drawHead,drawArm and drawLegs to get what we want. (we draw beak,eye,eye ball in drawHead function, drawLegs draw both legs and feet).
+
+Last but not least, we compile the file and check the result of the animation. In order to present the penguin is ¡°walking¡±, some values from previous functions are modified.  
